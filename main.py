@@ -11,11 +11,13 @@ app = FastAPI()
 class Channel:
     id: str
     name: str
-    tags: list[str] = field(default_factory=list)
+    #tags: list[str] = field(default_factory=list)
+    tags: List[str] = field(default_factory=list)  # Change this line
+
     description: str = ""
 
 
-channels: dict[str, Channel] = {}
+channels: Dict[str, Channel] = {}  
 
 with open("channels.json", encoding="utf8") as file:
     channels_raw = json.load(file)
